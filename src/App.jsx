@@ -291,21 +291,27 @@ function LoginPage({ onSignIn }) {
 
   return (
     <div className="login-screen">
-      <form className="login-card" onSubmit={handleSubmit}>
-        <div className="logo-mark"><Building2 size={28} /></div>
-        <h1>DOMA Secure Admin</h1>
-        <p>Sign in to manage the DOMA website and content library.</p>
-        <label>
-          <span>Email</span>
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="admin@domabuild.co.uk" required />
-        </label>
-        <label>
-          <span>Password</span>
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" required />
-        </label>
-        {error ? <div className="alert error">{error}</div> : null}
-        <button type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Secure Login'}</button>
-      </form>
+      <div className="login-panel">
+        <div className="login-illustration">
+          <div className="logo-mark"><Building2 size={30} /></div>
+          <h2>DOMA Admin</h2>
+          <p>Control the website with secure, professional access.</p>
+        </div>
+        <form className="login-card" onSubmit={handleSubmit}>
+          <h1>Welcome back</h1>
+          <p className="login-intro">Sign in to continue managing your DOMA workspace.</p>
+          <label>
+            <span>Email</span>
+            <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="admin@domabuild.co.uk" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" required />
+          </label>
+          {error ? <div className="alert error">{error}</div> : null}
+          <button type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Secure Login'}</button>
+        </form>
+      </div>
     </div>
   );
 }
