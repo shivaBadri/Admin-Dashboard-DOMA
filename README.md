@@ -54,6 +54,15 @@ git push origin main
 
 Then redeploy in Vercel.
 
+## Deploy to GitHub Pages
+
+This repository now includes a GitHub Actions workflow that publishes the Vite build to GitHub Pages on every push to the main branch.
+
+1. Push the repository to GitHub.
+2. Open the repository Settings > Pages.
+3. Select GitHub Actions as the source.
+4. Wait for the workflow to complete.
+
 ## Important
 
 This admin will manage the database immediately. The live DOMA website will reflect changes only after the website frontend is connected to Supabase using `website-integration/README.md`.
