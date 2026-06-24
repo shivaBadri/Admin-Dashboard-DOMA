@@ -4,7 +4,7 @@
 @media(max-width:760px){.settingsCard{padding:20px}.settingsRow{align-items:flex-start;flex-direction:column}.settingsHeader h2{font-size:28px}aside nav{grid-template-columns:1fr 1fr;display:grid}aside{padding:16px}.brand{justify-content:center}.visit,.logout{justify-content:center}.table{max-width:100%;overflow-x:auto}.topActions .pill{width:100%;justify-content:center}.previewCard{display:none}}
 @media(max-width:420px){aside nav{grid-template-columns:1fr}.heroPanel{padding:20px;border-radius:22px}.panel,.card,.editor,.sectionList,.settingsCard{border-radius:18px}.topbar h1{font-size:28px}button{width:100%;justify-content:center}.actions button{width:100%}.proForm button{width:100%}}
 
-.login-screen{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,rgba(4,10,15,.82),rgba(10,24,35,.72)),url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;color:#fff;padding:24px}
+.login-screen{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,rgba(4,10,15,.82),rgba(10,24,35,.72)),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;color:#fff;padding:24px}
 .login-panel{width:min(920px,100%);display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;border-radius:30px;box-shadow:0 30px 90px rgba(0,0,0,.25);backdrop-filter:blur(4px)}
 .login-illustration{background:linear-gradient(145deg,rgba(199,155,69,.95),rgba(17,28,39,.95));padding:36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;color:#fff}
 .login-illustration h2{margin:16px 0 8px;font-size:32px}
