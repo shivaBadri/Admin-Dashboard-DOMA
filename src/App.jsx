@@ -7,6 +7,7 @@ import {
   Camera,
   CheckCircle2,
   ChevronRight,
+  EyeOff,
   ClipboardList,
   Edit3,
   ExternalLink,
@@ -275,36 +276,83 @@ function Splash() {
 function LoginPage({ onSignIn }) {
   const [email, setEmail] = useState('admin@domabuild.co.uk');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [info, setInfo] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     setError('');
+    setInfo('');
 
     const success = await onSignIn(email, password);
-    if (!success) setError('Invalid credentials or missing Supabase configuration.');
+    if (!success) {
+      setError('Invalid credentials or missing Supabase configuration.');
+    } else if (rememberMe) {
+      setInfo('Secure session ready for the next site update.');
+    }
     setLoading(false);
   };
 
   return (
     <div className="login-screen">
-      <form className="login-card" onSubmit={handleSubmit}>
-        <div className="logo-mark"><Building2 size={28} /></div>
-        <h1>DOMA Secure Admin</h1>
-        <p>Sign in to manage the DOMA website and content library.</p>
-        <label>
-          <span>Email</span>
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="admin@domabuild.co.uk" required />
-        </label>
-        <label>
-          <span>Password</span>
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="��������" required />
-        </label>
-        {error ? <div className="alert error">{error}</div> : null}
-        <button type="submit" disabled={loading}>{loading ? 'Signing in�' : 'Secure Login'}</button>
-      </form>
+      <div className="login-shell">
+        <div className="login-hero">
+          <div className="login-badge">Secure operations • Construction-grade</div>
+          <h2>Run your DOMA website from a premium command centre.</h2>
+          <p>Oversee projects, enquiries, media, content and site settings with confidence.</p>
+          <ul className="login-highlights">
+            <li>Protected admin access</li>
+            <li>Instant content updates</li>
+            <li>Professional project oversight</li>
+          </ul>
+        </div>
+
+        <form className="login-card" onSubmit={handleSubmit}>
+          <div className="login-brand">
+            <div className="logo-mark"><Building2 size={28} /></div>
+            <div>
+              <p className="login-kicker">DOMA Build Contractors Ltd</p>
+              <h1>Admin Access</h1>
+            </div>
+          </div>
+
+          <p className="login-intro">Sign in to manage the DOMA website and content library.</p>
+
+          <label className="field-group">
+            <span>Email</span>
+            <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="admin@domabuild.co.uk" required />
+          </label>
+
+          <label className="field-group">
+            <span>Password</span>
+            <div className="password-wrap">
+              <input type={showPassword ? 'text' : 'password'} value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" required />
+              <button type="button" className="password-toggle" onClick={() => setShowPassword((value) => !value)} aria-label="Toggle password visibility">
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
+          </label>
+
+          <div className="login-meta">
+            <label className="checkbox-row">
+              <input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} />
+              <span>Remember me</span>
+            </label>
+            <button type="button" className="text-link" onClick={() => setInfo('Password reset can be handled from your Supabase auth settings.')}>Forgot password?</button>
+          </div>
+
+          {error ? <div className="alert error">{error}</div> : null}
+          {info ? <div className="alert success">{info}</div> : null}
+
+          <button type="submit" className="login-submit" disabled={loading}>
+            {loading ? <><RefreshCw size={16} className="spin" /> Signing in...</> : <>Secure Login</>}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
