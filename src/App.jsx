@@ -422,10 +422,10 @@ function Dashboard({ setPage }) {
   return (
     <div className="dashboard-grid">
       <section className="hero-panel">
-        <div>
-          <span className="eyebrow"><Zap size={16} /> Live website control</span>
-          <h2>Run the DOMA website from a single professional admin workspace.</h2>
-          <p>Update sections, services, projects, enquiries, media and SEO with confidence.</p>
+        <div className="hero-copy">
+          <span className="eyebrow"><Zap size={16} /> Construction command centre</span>
+          <h2>Run your DOMA construction website from one polished admin workspace.</h2>
+          <p>Update projects, services, enquiries, media and SEO with confidence from a secure live control panel.</p>
           <div className="actions-row">
             <button type="button" onClick={() => setPage('website')}>
               Edit Website Fields <ChevronRight size={18} />
@@ -441,7 +441,7 @@ function Dashboard({ setPage }) {
             <b>domabuild.co.uk</b>
           </div>
           <div className="preview-body">
-            <h3>Construction built on trust</h3>
+            <h3>Built on trust, delivered with precision</h3>
             <p>Professional updates from the DOMA admin panel.</p>
           </div>
         </div>
