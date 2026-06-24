@@ -294,12 +294,12 @@ function LoginPage({ onSignIn }) {
       <div className="login-panel">
         <div className="login-illustration">
           <div className="logo-mark"><Building2 size={30} /></div>
-          <h2>DOMA Admin</h2>
-          <p>Control the website with secure, professional access.</p>
+          <h2>DOMA Construction Admin</h2>
+          <p>Manage projects, updates, and client operations from one secure workspace.</p>
         </div>
         <form className="login-card" onSubmit={handleSubmit}>
           <h1>Welcome back</h1>
-          <p className="login-intro">Sign in to continue managing your DOMA workspace.</p>
+          <p className="login-intro">Sign in to continue managing your civil contracting operations.</p>
           <label>
             <span>Email</span>
             <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="admin@domabuild.co.uk" required />
@@ -309,7 +309,7 @@ function LoginPage({ onSignIn }) {
             <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" required />
           </label>
           {error ? <div className="alert error">{error}</div> : null}
-          <button type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Secure Login'}</button>
+          <button type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Access Dashboard'}</button>
         </form>
       </div>
     </div>
