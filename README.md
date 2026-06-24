@@ -1,68 +1,29 @@
-# DOMA Admin Secure Website Control v2
+# DOMA Build Professional Admin Dashboard
 
-Professional dashboard to manage every editable DOMA website field using Supabase Free.
+Premium black + gold construction CMS dashboard for DOMA Build.
 
-## What is fixed in this version
+## Deploy
 
-- No blank pages: every menu route has a working screen.
-- No demo CRM text: content is DOMA website CMS focused.
-- Website Fields module controls header, hero, about, services intro, projects intro, sectors, news, testimonials, CTA, contact, footer and SEO.
-- Soft delete added: deleted records go to Restore Center.
-- Restore option added for accidental deletion.
-- Supabase Free safe: small media only, no heavy analytics DB.
-- Secure auth ready: Supabase Auth, RLS policies, no hardcoded password.
-- GitHub/Vercel ready.
-
-## Local Run
-
-```cmd
-npm config set registry https://registry.npmjs.org/
+```bash
 npm install
-npm run dev
+npm run build
 ```
 
-Open:
+## Render Static Deployment
 
-```text
-http://localhost:5173
-```
+Use `render.yaml` or create a Static Site manually:
+- Build command: `npm install && npm run build`
+- Publish directory: `dist`
 
-## Supabase Setup
-
-1. Create Supabase project.
-2. Go to SQL Editor.
-3. Run `supabase/schema.sql`.
-4. Authentication > Users > Add user for admin login.
-5. Storage > Create bucket named `doma-media`.
-6. Keep service_role key private. Do not put it in Vercel frontend.
-
-## Vercel Environment Variables
+## Required env
 
 ```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
 VITE_DOMA_SITE_URL=https://domabuild.co.uk
+VITE_API_BASE_URL=
 ```
 
-## Deploy to Present GitHub Repo
+## Live website linking
 
-```cmd
-git add .
-git commit -m "DOMA admin production website control v2"
-git push origin main
-```
-
-Then redeploy in Vercel.
-
-## Deploy to GitHub Pages
-
-This repository now includes a GitHub Actions workflow that publishes the Vite build to GitHub Pages on every push to the main branch.
-
-1. Push the repository to GitHub.
-2. Open the repository Settings > Pages.
-3. Select GitHub Actions as the source.
-4. Wait for the workflow to complete.
-
-## Important
-
-This admin will manage the database immediately. The live DOMA website will reflect changes only after the website frontend is connected to Supabase using `website-integration/README.md`.
+Run `supabase/schema.sql` in Supabase, create bucket `doma-media`, then update the live DOMA frontend to fetch from Supabase tables.
